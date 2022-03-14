@@ -1,0 +1,46 @@
+ion-header {
+
+    ion-toolbar {
+        --min-height: 280px;
+        
+        ion-title   {
+
+            align-items: flex-end;
+            
+            img {
+                width: 215px;
+                vertical-align:middle;
+                margin-right:10px;
+                margin-top:120px;
+            } 
+            ion-button {
+                display:block;
+            }
+        }
+    }
+
+}
+
+
+ion-content {
+
+    form {
+        margin-top: 50px;
+
+       span {
+         margin-left: 21px;
+         margin-top:3px; 
+         font-size: 13px;
+       }
+
+       a {
+        color:#fff;
+       }
+
+       ion-button {
+        margin-top: 40%;
+       }
+    }
+
+
+}

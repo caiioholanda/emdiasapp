@@ -1,17 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      <img src="/assets/logomarca/logo.png" alt="">
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> 
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content  color="primary" class="ion-padding">
+<form [formGroup]="validations_form" (ngSubmit)="formLogin()">
+      <ion-item color="primary">
+        <ion-label position="floating">E-mail</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+
+ 
+      <ion-item color="primary">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" formControlName="senha"></ion-input>
+      </ion-item>
+
+     <div class="esqueceu">
+      <span>Esqueceu a senha? <a href="">clique aqui.</a></span>
+    </div>
+      
+
+      <ion-button class="submit-btn ion-text-right" expand="block" type="submit" >
+        Acessar
+        <ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon>
+      </ion-button>
+
+
+    
+  </form>
+  
 </ion-content>

@@ -1,17 +1,157 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      <img src="/assets/logomarca/logo.png" alt="">
+
+      <ion-button (click)="toggleBlocks()" color="light" fill="clear" size="small">
+        <ion-icon  slet="icon-only" [name]="initialStep > 0 ? 'arrow-up-outline' : 'arrow-down-outline'"></ion-icon>
+      </ion-button>
+
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> 
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding" color="primary" [scrollY]="!swiping">
+  <div #background class="background opacity-transition">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <div class="bank-information ion-text-center">
+      <img src="/assets/qrcode.png" class="qrcode" alt="">
+
+      <span>Banco    <strong>000 - Nu pagamentos Sa</strong></span>
+      <span>Agência  <strong>000 </strong></span>
+      <span>Conta    <strong>000</strong></span>
+    </div>
+
+
+    <ion-list lines="full">
+      <ion-item *ngFor="let item of items"   detail>
+        <ion-icon slot="start" [name]="item.icon" color="light"></ion-icon>
+        <ion-label> {{item.text}} </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="logout" color="light" expand="block" fill="outline">
+        Sair da conta
+    </ion-button>
+
+
+  </div>
+
+  <div #blocks class="blocks" [ngClass]="fixedBlocks() ? 'fixed' : null">
+    <ion-card>
+      <ion-item #swipeDown class="ion-margin-vertical" lines="none">
+        <ion-icon slot="start" name="card-outline"></ion-icon>
+        <ion-label>Cartão de Crédito</ion-label>
+      </ion-item>
+
+        <ion-card-content class="ion-no-padding">
+          <div class="cash ion-padding ion-margin-vertical">
+            <span class="blue">Fatura Atual</span>
+            <span class="blue value">300,00</span>
+            <span>Limite disponível <span class="green">R$ 2944,48</span></span>
+          </div>
+
+           <div class="footer ion-padding-vertical">
+             <ion-item detail color="light" lines="none">
+               <ion-icon slot="start" name="pizza-outline">
+                 
+               </ion-icon>
+               <ion-label class="ion-text-wrap">Compra mais recente em Ifood *Ifood no valor de R$ 54,00</ion-label>
+             </ion-item>
+           </div>
+        </ion-card-content>
+    </ion-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <ion-card>
+      <ion-item class="ion-margin-vertical" lines="none">
+        <ion-icon slot="start" name="card-outline"></ion-icon>
+        <ion-label>Conta</ion-label>
+      </ion-item>
+
+        <ion-card-content class="ion-no-padding">
+          <div class="cash ion-padding ion-margin-vertical">
+            <span class="dark">Saldo disponível</span>
+            <span class="dark value">1.278,12</span>
+          </div>
+
+           <div class="footer ion-padding-vertical">
+             <ion-item detail color="light" lines="none">
+               <ion-icon slot="start" name="barcode-outline">
+                 
+               </ion-icon>
+               <ion-label class="ion-text-wrap">Boleto de R$ 312,99 pago na segunda</ion-label>
+             </ion-item>
+           </div>
+        </ion-card-content>
+    </ion-card>
+
+
+
+
+    <ion-card>
+      <ion-card-content class="ion-margin-vertical ion-text-center">
+
+        <ion-icon class="gift" name="gift-outline"></ion-icon>
+        
+
+      <div class="ion-margin-vertical">
+        <ion-text color="dark">
+          <p class="title">
+            <strong>Torne-se membro</strong>
+          </p>
+
+          <p>Tenha desconto fixo de 1.99% em todas suas operações após torna-se membro do nosso comitê.</p>
+        </ion-text>
+      </div>
+
+      <ion-button expand="block" fill="outline">
+        <strong>Quero ser membro</strong>
+      </ion-button>
+
+
+      </ion-card-content>
+
+    </ion-card>
+
+
+
+
+
+
+
+    
+  </div>
+
 </ion-content>
+
+<ion-footer [ngClass]="fixedBlocks() ? 'hidden' : null" color="primary" class="ion-no-border ">
+  <ion-toolbar color="primary" class="ion-no-margin ion-padding-vertical">
+    <ion-slides [options]="slidesOptions" class="opacity-transition">
+       <ion-slide *ngFor="let option of options">
+         <ion-card class="ion-text-left">      
+            <ion-icon [name]="option.icon"></ion-icon>
+            <span>{{option.text}}</span>  
+         </ion-card>
+       </ion-slide>
+    </ion-slides> 
+  </ion-toolbar>
+
+
+</ion-footer>

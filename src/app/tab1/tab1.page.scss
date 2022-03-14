@@ -1,0 +1,171 @@
+ion-header {
+
+    ion-toolbar {
+        --min-height: 100px;
+        
+        ion-title   {
+
+            align-items: flex-end;
+            
+            img {
+                width: 85px;
+                vertical-align:middle;
+                margin-right:10px;
+            } 
+            ion-button {
+                display:block;
+            }
+        }
+    }
+
+}
+
+
+ion-content {
+    .background {
+        opacity:0;
+
+        .bank-information {
+            .qrcode {
+                width:80px;
+                margin: 18px auto;
+                display:block;
+            }
+
+            span {
+                display:block;
+                margin: 5px 0;
+                font-size:14px;
+            }
+        }
+
+
+        ion-list  {
+            margin-top: 32px;
+            background: transparent;
+
+            ion-item {
+                color:#fff;
+                --background:transparent;
+                --detail-icon-opacity:1;
+                border-bottom: 0.55px solid rgba(255,255,255, 0.7); 
+
+
+                &:first-of-type {
+                    border-top: 0.55px solid rgba(255,255,255, 0.7);
+
+                }
+            }
+        }
+
+
+        .logout {
+            margin-top: 20px;
+        }
+
+
+    }
+
+
+
+    .blocks {
+         position: absolute;
+         top: 0;
+         left:0;
+         height:100%;
+         width:100%;
+         overflow-y:scroll;
+         z-index:999;
+
+         &.fixed {
+            position: fixed;
+            top:110px;
+            overflow-y:hidden;
+         }
+
+        ion-card {
+            .cash {
+
+
+                span
+                {                    
+                    &.value {
+                      font-size: 30px;   
+                      display:block;
+                    }
+
+
+                    &.blue {
+                        color: #0ab9cd;
+                    }
+
+                    &.green {
+                        color: #94c22b;
+                    }
+                }
+
+
+            } 
+
+
+            .footer {
+                background: #f4f5f8;
+            }
+
+            .title {
+                font-size:20px;
+            }
+
+            .gift {
+                font-size:30px;
+            }
+        }
+    }
+}
+
+
+
+
+ion-footer {
+
+                &.hidden {
+                    height:0;
+                    ion-slides {
+                        opacity:0
+                    }
+                }
+
+            ion-slide {
+
+                margin-bottom: 3px!important;
+                ion-card {
+                    width: 100%;
+                    color:white;
+                    height: 100px;
+                    background: var(--ion-color-primary-tint);
+                    padding:10px;
+                    margin: 0 5px;
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    
+
+                    ion-icon {
+                        font-size: 22px;
+                        color:#fff!important;
+                    }
+
+                    span {
+                        font-size:14px;
+                    }
+
+                }
+            }  
+      
+
+}
+
+
+.opacity-transition{ 
+   transition: opacity 0.3s;
+}
